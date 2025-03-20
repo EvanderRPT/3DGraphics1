@@ -1,0 +1,12 @@
+﻿  main.c
+main.obj : error LNK2019: unresolved external symbol SDL_CreateWindow referenced in function initializa_window
+main.obj : error LNK2019: unresolved external symbol SDL_PollEvent referenced in function process_input
+main.obj : error LNK2019: unresolved external symbol SDL_CreateRenderer referenced in function initializa_window
+main.obj : error LNK2019: unresolved external symbol SDL_SetRenderDrawColor referenced in function render
+main.obj : error LNK2019: unresolved external symbol SDL_RenderClear referenced in function render
+main.obj : error LNK2019: unresolved external symbol SDL_RenderPresent referenced in function render
+main.obj : error LNK2019: unresolved external symbol SDL_Init referenced in function initializa_window
+MSVCRTD.lib(exe_main.obj) : error LNK2019: unresolved external symbol main referenced in function "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
+D:\env\CppLib\SDL2\lib\x86\SDL2.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+D:\env\CppLib\SDL2\lib\x86\SDL2main.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+D:\Codes\Dev\C_CPP\3dGraphics\x64\Debug\3dGraphics.exe : fatal error LNK1120: 8 unresolved externals

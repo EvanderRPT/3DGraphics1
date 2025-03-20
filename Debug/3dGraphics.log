@@ -1,0 +1,17 @@
+﻿  Main.cpp
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(50,12): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(52,14): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(106,21): warning C4305: '+=': truncation from 'double' to 'float'
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(107,21): warning C4305: '+=': truncation from 'double' to 'float'
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(111,21): warning C4305: '+=': truncation from 'double' to 'float'
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(194,43): warning C4244: '*=': conversion from 'double' to 'float', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(195,44): warning C4244: '*=': conversion from 'double' to 'float', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(203,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(248,20): warning C4018: '<': signed/unsigned mismatch
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(261,61): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(261,35): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(262,61): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(262,35): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(263,61): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(263,35): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  3dGraphics.vcxproj -> D:\Codes\Dev\C_CPP\3dGraphics\Debug\3dGraphics.exe
