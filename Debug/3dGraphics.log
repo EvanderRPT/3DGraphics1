@@ -1,17 +1,54 @@
-﻿  Main.cpp
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(50,12): warning C4305: 'initializing': truncation from 'double' to 'float'
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(52,14): warning C4305: 'initializing': truncation from 'double' to 'float'
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(106,21): warning C4305: '+=': truncation from 'double' to 'float'
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(107,21): warning C4305: '+=': truncation from 'double' to 'float'
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(111,21): warning C4305: '+=': truncation from 'double' to 'float'
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(194,43): warning C4244: '*=': conversion from 'double' to 'float', possible loss of data
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(195,44): warning C4244: '*=': conversion from 'double' to 'float', possible loss of data
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(203,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(248,20): warning C4018: '<': signed/unsigned mismatch
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(261,61): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(261,35): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(262,61): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(262,35): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(263,61): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(263,35): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+﻿  triangle.cpp
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(9,16): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(10,14): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(13,25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(13,13): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(21,16): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(22,14): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(25,25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(25,13): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(56,49): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(56,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(56,41): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(56,37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(56,33): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(56,29): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(60,46): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(60,42): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(60,38): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(60,34): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(60,30): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(60,26): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(64,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(65,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(68,41): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(68,37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(68,33): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(68,29): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(71,46): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(71,42): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(71,30): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(71,26): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(77,60): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(77,47): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(77,34): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(77,21): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(78,60): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(78,47): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(78,34): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(78,21): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(79,60): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(79,47): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(79,34): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(79,21): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(94,9): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(95,9): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(96,9): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(97,9): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(98,9): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(99,9): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(137,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(138,14): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(159,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(160,14): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
   3dGraphics.vcxproj -> D:\Codes\Dev\C_CPP\3dGraphics\Debug\3dGraphics.exe

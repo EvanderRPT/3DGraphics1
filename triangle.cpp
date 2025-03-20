@@ -123,5 +123,49 @@ void triangle_t::draw_textured_triangle(uint32_t* texture)
 		std::swap(v0, v1);
 	}
 
+
+	// Render the top part of the triangle
+	float inv_slope_1 = 0;
+	float inv_slope_2 = 0;
+
+	if (y1 - y0 != 0) inv_slope_1 = (float)(x1 - x0) / (y1 - y0);
+	if (y2 - y0 != 0) inv_slope_2 = (float)(x2 - x0) / (y2 - y0);
+
+	if (y1 - y0 != 0) {
+
+		for (int y = y0; y <= y1; y++) {
+			int x_start = x1 + (y - y1) * inv_slope_1;
+			int x_end = x0 + (y - y0) * inv_slope_2 ;
+
+			if (x_end < x_start) {
+				std::swap(x_start, x_end);
+			}
+			for (int x = x_start; x < x_end; x++) {
+				draw_pixel(x, y, 0xFFFF00FF);
+			}
+		}
+	}
+
+	// Render the bottom part of the triangle
+	 inv_slope_1 = 0;
+	 inv_slope_2 = 0;
+
+	if (y2 - y1 != 0) inv_slope_1 = (float)(x2 - x1) / (y2 - y1);
+	if (y2 - y0 != 0) inv_slope_2 = (float)(x2 - x0) / (y2 - y0);
+
+	if (y2 - y1 != 0) {
+
+		for (int y = y1; y <= y2; y++) {
+			int x_start = x1 + (y - y1) * inv_slope_1;
+			int x_end = x0 + (y - y0) * inv_slope_2;
+
+			if (x_end < x_start) {
+				std::swap(x_start, x_end);
+			}
+			for (int x = x_start; x < x_end; x++) {
+				draw_pixel(x, y, 0xFFFF00FF);
+			}
+		}
+	}
 }
 
