@@ -58,6 +58,6 @@ public:
 	vec4_t(float x, float y, float z, float w = 1.0f) : x(x), y(y), z(z), w(w) {}
 
 	vec3_t vec4_to_vec3();
-
+	vec2_t to_vec2();
 
 };

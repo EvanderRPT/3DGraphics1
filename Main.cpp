@@ -218,9 +218,9 @@ void update(void) {
 		uint32_t triangle_color = light_apply_intensity(mesh_face.color, light_intensity_factor);
 
 		triangle_t projected_triangle{ 
-			{ projected_points[0].x, projected_points[0].y },
-			{ projected_points[1].x, projected_points[1].y },
-			{ projected_points[2].x, projected_points[2].y },
+			{ projected_points[0].x, projected_points[0].y,projected_points[0].z, projected_points[0].w },
+			{ projected_points[1].x, projected_points[1].y, projected_points[1].z, projected_points[1].w },
+			{ projected_points[2].x, projected_points[2].y , projected_points[2].z, projected_points[2].w },
 			{ mesh_face.a_uv.u,  mesh_face.a_uv.v },
 			{ mesh_face.b_uv.u,  mesh_face.b_uv.v },
 			{ mesh_face.c_uv.u,  mesh_face.c_uv.v },

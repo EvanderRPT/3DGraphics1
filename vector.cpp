@@ -133,3 +133,8 @@ vec3_t vec4_t::vec4_to_vec3()
 	return r;
 
 }
+vec2_t vec4_t::to_vec2()
+{
+	vec2_t r(x, y);
+	return r;
+}

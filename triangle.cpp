@@ -1,8 +1,7 @@
 #include "triangle.h"
 #include "display.h"
 #include <algorithm>
-
-void draw_texel(int x, int y, uint32_t* texture, vec2_t point_a, vec2_t point_b, vec2_t point_c, float u0, float v0, float u1, float v1, float u2, float v2);
+void draw_texel(int x, int y, uint32_t* texture, vec4_t point_a, vec4_t point_b, vec4_t point_c, tex2_t a_uv, tex2_t b_uv, tex2_t c_uv);
 
 void fill_flat_bottom_triangle(int x0, int y0, int x1, int y1, int x2, int y2, uint32_t color) {
 	float inv_slope1 = (float)(x1 - x0) / (y1 - y0);
@@ -95,10 +94,19 @@ void triangle_t::draw_textured_triangle(uint32_t* texture)
 {
 	int x0 = points[0].x;
 	int y0 = points[0].y;
+	float z0 = points[0].z;
+	float w0 = points[0].w;
+
 	int x1 = points[1].x;
 	int y1 = points[1].y;
+	float z1 = points[1].z;
+	float w1 = points[1].w;
+
 	int x2 = points[2].x;
 	int y2 = points[2].y;
+	float z2 = points[2].z;
+	float w2 = points[2].w;
+
 	float u0 = texcoords[0].u;
 	float v0 = texcoords[0].v;
 	float u1 = texcoords[1].u;
@@ -109,26 +117,36 @@ void triangle_t::draw_textured_triangle(uint32_t* texture)
 	if (y0 > y1) {
 		std::swap(y0, y1);
 		std::swap(x0, x1);
+		std::swap(z0, z1);
+		std::swap(w0, w1);
 		std::swap(u0, u1);
 		std::swap(v0, v1);
 	}
 	if (y1 > y2) {
 		std::swap(y1, y2);
 		std::swap(x1, x2);
+		std::swap(z1, z2);
+		std::swap(w1, w2);
 		std::swap(u1, u2);
 		std::swap(v1, v2);
 	}
 	if (y0 > y1) {
 		std::swap(y0, y1);
 		std::swap(x0, x1);
+		std::swap(z0, z1);
+		std::swap(w0, w1);
 		std::swap(u0, u1);
 		std::swap(v0, v1);
 	}
 
 	// Create vector points and texture coords after we sort the vertices
-	vec2_t point_a = { (float)x0, (float)y0 };
-	vec2_t point_b = { (float)x1, (float)y1 };
-	vec2_t point_c = { (float)x2,(float)y2 };
+	vec4_t point_a = { (float)x0, (float)y0, z0, w0 };
+	vec4_t point_b = { (float)x1, (float)y1, z1, w1 };
+	vec4_t point_c = { (float)x2, (float)y2, z2, w2 };
+	tex2_t a_uv = { u0, v0 };
+	tex2_t b_uv = { u1, v1 };
+	tex2_t c_uv = { u2, v2 };
+
 
 	// Render the top part of the triangle
 	float inv_slope_1 = 0;
@@ -147,7 +165,7 @@ void triangle_t::draw_textured_triangle(uint32_t* texture)
 				std::swap(x_start, x_end);
 			}
 			for (int x = x_start; x < x_end; x++) {
-				draw_texel(x, y, texture, point_a, point_b, point_c, u0, v0, u1, v1, u2, v2);
+				draw_texel(x, y, texture, point_a, point_b, point_c, a_uv, b_uv, c_uv);
 			}
 		}
 	}
@@ -170,7 +188,7 @@ void triangle_t::draw_textured_triangle(uint32_t* texture)
 			}
 			for (int x = x_start; x < x_end; x++) {
 				// Draw our pixel with the color that comes from the texture
-				draw_texel(x, y, texture, point_a, point_b, point_c, u0, v0, u1, v1, u2, v2);
+				draw_texel(x, y, texture, point_a, point_b, point_c, a_uv, b_uv, c_uv);
 			}
 		}
 	}
@@ -201,17 +219,35 @@ vec3_t barycentric_weights(vec2_t a, vec2_t b, vec2_t c, vec2_t p) {
 	return vec3_t{ alpha, beta, gamma };
 }
 
-void draw_texel(int x, int y, uint32_t* texture, vec2_t point_a, vec2_t point_b, vec2_t point_c, float u0, float v0, float u1, float v1, float u2, float v2) {
-	vec2_t point_p = { (float)x , (float)y };
-	vec3_t weights = barycentric_weights(point_a, point_b, point_c, point_p);
+void draw_texel(int x, int y, uint32_t* texture, vec4_t point_a, vec4_t point_b, vec4_t point_c, tex2_t a_uv, tex2_t b_uv, tex2_t c_uv) {
+	vec2_t p = { (float)x , (float)y };
+	vec2_t a = point_a.to_vec2();
+	vec2_t b = point_b.to_vec2();
+	vec2_t c = point_c.to_vec2();
 
+	// Calcuate the barycentric coordinates of our point 'p' inside the triangle
+	vec3_t weights = barycentric_weights(a, b, c, p);
+	
 	float alpha = weights.x;
 	float beta = weights.y;
 	float gamma = weights.z;
 
-	// Perform the interpolation of all U and V values using barycentric weighrts
-	float interpolated_u = (u0)*alpha + (u1)*beta + (u2)*gamma;
-	float interpolated_v = (v0)*alpha + (v1)*beta + (v2)*gamma;
+	// Variables to store the interpolated values of U, V, and also 1/w for the current pixel
+	float interpolated_u;
+	float interpolated_v;
+	float interpolated_reciprocal_w;
+	// Perform the interpolation of all U/w and V/w values using barycentric weights and a factor of 1/w
+	interpolated_u = (a_uv.u / point_a.w) * alpha + (b_uv.u / point_b.w) * beta + (c_uv.u / point_c.w) * gamma;
+	interpolated_v = (a_uv.v / point_a.w) * alpha + (b_uv.v / point_b.w) * beta + (c_uv.v / point_c.w) * gamma;
+
+	// Also interpolate the value of 1/w for the current pixel
+	interpolated_reciprocal_w = (1 / point_a.w) * alpha + (1 / point_b.w) * beta + (1 / point_c.w) * gamma;
+
+	// Now we can divide back both interpolated values by 1/w
+	interpolated_u /= interpolated_reciprocal_w;
+	interpolated_v /= interpolated_reciprocal_w;
+
+
 
 	// Map the UV coordinate to the full texture width and hiegt
 	int tex_x = std::abs((int)(interpolated_u * texture_width));

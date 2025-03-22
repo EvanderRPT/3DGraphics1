@@ -23,20 +23,20 @@ public:
 
 class triangle_t {
 public:
-	vec2_t points[3];
+	vec4_t points[3];
 	tex2_t texcoords[3];
 
 	uint32_t color = 0xFFFFFFFF;
 
 	float avg_depth = 0.0f;
 	triangle_t() {}
-	triangle_t(vec2_t p1, vec2_t p2, vec2_t p3) {
+	triangle_t(vec4_t p1, vec4_t p2, vec4_t p3) {
 		points[0] = p1;
 		points[1] = p2;
 		points[2] = p3;
 	}
 
-	triangle_t(vec2_t p1, vec2_t p2, vec2_t p3,  tex2_t texcoord0, tex2_t texcoord1, tex2_t texcoord2, uint32_t color, float avg_depth = 0.0f): color(color), avg_depth(avg_depth) {
+	triangle_t(vec4_t p1, vec4_t p2, vec4_t p3,  tex2_t texcoord0, tex2_t texcoord1, tex2_t texcoord2, uint32_t color, float avg_depth = 0.0f): color(color), avg_depth(avg_depth) {
 		points[0] = p1;
 		points[1] = p2;
 		points[2] = p3;
@@ -45,7 +45,7 @@ public:
 		texcoords[2] = texcoord2;
 
 	}
-	triangle_t(vec2_t p1, vec2_t p2, vec2_t p3, uint32_t color, float avg_depth = 0.0f) : color(color), avg_depth(avg_depth) {
+	triangle_t(vec4_t p1, vec4_t p2, vec4_t p3, uint32_t color, float avg_depth = 0.0f) : color(color), avg_depth(avg_depth) {
 		points[0] = p1;
 		points[1] = p2;
 		points[2] = p3;
