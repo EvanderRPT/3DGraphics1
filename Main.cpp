@@ -11,10 +11,13 @@
 #include "matrix.h"
 #include "light.h"
 #include "texture.h"
-
+#include "upng.h"
 //#define DRAW_SHAPE
 #define DRAW_CUBE
+#define PNG_TEXTURE
+
 #define FULL_ROTATION
+
 
 //#define TEST
 #define DEV
@@ -44,7 +47,7 @@ void setup(void) {
 	color_buffer = (uint32_t*)malloc(sizeof(uint32_t) * window_width * window_height);
 
 	// Creating a SDL texture that is used to display the color buffer
-	color_buffer_texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_ARGB8888,
+	color_buffer_texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA32,
 		SDL_TEXTUREACCESS_STREAMING,
 		window_width, window_height);
 
@@ -64,7 +67,12 @@ void setup(void) {
 #endif // DRAW_SHAPE
 
 	// Load the hardcoded texature array in the global mesh texture variable
-	mesh_texture = (uint32_t*)REDBRICK_TEXTURE;
+	//mesh_texture = (uint32_t*)REDBRICK_TEXTURE;
+
+#ifdef PNG_TEXTURE
+	load_png_texture_data("D:\\Codes\\Dev\\C_CPP\\3dGraphics\\3dGraphics\\cube.png");
+#endif // PNG_TEXTURE
+
 
 }
 
@@ -249,7 +257,7 @@ void free_resources(void) {
 #ifdef DEBUG
 	std::cout << "mesh.faces.clear();" << std::endl;
 #endif // DEBUG
-
+	upng_free(png_texture);
 
 	mesh.vertices.clear();
 #ifdef DEBUG

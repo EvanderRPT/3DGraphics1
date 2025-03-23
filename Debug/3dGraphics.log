@@ -1,4 +1,22 @@
-﻿  triangle.cpp
+﻿  Main.cpp
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(55,12): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(57,14): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(123,21): warning C4305: '+=': truncation from 'double' to 'float'
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(124,21): warning C4305: '+=': truncation from 'double' to 'float'
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(128,21): warning C4305: '+=': truncation from 'double' to 'float'
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(211,43): warning C4244: '*=': conversion from 'double' to 'float', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(212,44): warning C4244: '*=': conversion from 'double' to 'float', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(220,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(273,20): warning C4018: '<': signed/unsigned mismatch
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(291,61): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(291,35): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(292,61): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(292,35): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(293,61): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(293,35): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  mesh.cpp
+  texture.cpp
+  triangle.cpp
 D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(10,16): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
 D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(11,14): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
 D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(14,25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
@@ -51,14 +69,5 @@ D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(161,16): warning C4244: 'i
 D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(162,14): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(183,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\triangle.cpp(184,14): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-  vector.cpp
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\vector.cpp(6,13): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\vector.cpp(52,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\vector.cpp(53,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\vector.cpp(59,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\vector.cpp(61,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\vector.cpp(67,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\vector.cpp(68,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\vector.cpp(75,13): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
   Generating Code...
   3dGraphics.vcxproj -> D:\Codes\Dev\C_CPP\3dGraphics\Debug\3dGraphics.exe
