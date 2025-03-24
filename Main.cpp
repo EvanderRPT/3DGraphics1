@@ -44,7 +44,9 @@ void setup(void) {
 
 
 	// Allocate the required memory in bytes to hold the color buffer
+
 	color_buffer = (uint32_t*)malloc(sizeof(uint32_t) * window_width * window_height);
+	z_buffer = (float*)malloc(sizeof(float) * window_width * window_height);
 
 	// Creating a SDL texture that is used to display the color buffer
 	color_buffer_texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA32,
@@ -63,14 +65,14 @@ void setup(void) {
 #endif 
 
 #ifdef DRAW_SHAPE
-	load_obj_file(".\\assets\\crab.obj");
+	load_obj_file(".\\assets\\cube.obj");
 #endif // DRAW_SHAPE
 
 	// Load the hardcoded texature array in the global mesh texture variable
 	//mesh_texture = (uint32_t*)REDBRICK_TEXTURE;
 
 #ifdef PNG_TEXTURE
-	load_png_texture_data(".\\assets\\crab.png");
+	load_png_texture_data(".\\assets\\cube.png");
 #endif // PNG_TEXTURE
 
 
@@ -304,6 +306,8 @@ void render(void) {
 	render_color_buffer();
 
 	clear_color_buffer(0xFF000000);
+
+	clear_z_buffer();
 
 	SDL_RenderPresent(renderer);
 }

@@ -1,17 +1,6 @@
-﻿  Main.cpp
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(55,12): warning C4305: 'initializing': truncation from 'double' to 'float'
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(57,14): warning C4305: 'initializing': truncation from 'double' to 'float'
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(123,21): warning C4305: '+=': truncation from 'double' to 'float'
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(124,21): warning C4305: '+=': truncation from 'double' to 'float'
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(128,21): warning C4305: '+=': truncation from 'double' to 'float'
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(211,43): warning C4244: '*=': conversion from 'double' to 'float', possible loss of data
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(212,44): warning C4244: '*=': conversion from 'double' to 'float', possible loss of data
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(220,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(273,20): warning C4018: '<': signed/unsigned mismatch
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(291,61): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(291,35): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(292,61): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(292,35): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(293,61): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(293,35): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+﻿  display.cpp
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\display.cpp(119,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\display.cpp(120,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\display.cpp(122,37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\display.cpp(122,19): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   3dGraphics.vcxproj -> D:\Codes\Dev\C_CPP\3dGraphics\Debug\3dGraphics.exe

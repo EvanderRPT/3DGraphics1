@@ -2,7 +2,8 @@
 #include <iostream>
 SDL_Window* window = NULL;
 SDL_Renderer* renderer = NULL;
-uint32_t* color_buffer = NULL;
+uint32_t* color_buffer = nullptr;
+float* z_buffer = nullptr;
 SDL_Texture* color_buffer_texture = NULL;
 int window_width = 800;
 int window_height = 600;
@@ -86,7 +87,9 @@ void clear_color_buffer(uint32_t color) {
 }
 
 void destroy_window(void) {
+
     free(color_buffer);
+    free(z_buffer);
 #ifdef DEBUG
     std::cout << " free(color_buffer);" << std::endl;
 
@@ -127,5 +130,14 @@ void draw_triangle(int x0, int y0, int x1, int y1, int x2, int y2, uint32_t colo
 	draw_line(x0, y0, x1, y1, color);
 	draw_line(x1, y1, x2, y2, color);
 	draw_line(x2, y2, x0, y0, color);
+}
+
+void clear_z_buffer()
+{
+    for (int y = 0; y < window_height; y++) {
+        for (int x = 0; x < window_width; x++) {
+            z_buffer[(window_width * y) + x] = 1.0;
+        }
+    }
 }
 
