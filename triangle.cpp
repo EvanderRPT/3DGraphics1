@@ -139,6 +139,13 @@ void triangle_t::draw_textured_triangle(uint32_t* texture)
 		std::swap(v0, v1);
 	}
 
+
+	// Flip the V component to account for inverted UV-coordinates (V grows downwards)
+	v0 = 1 - v0;
+	v1 = 1 - v1;
+	v2 = 1 - v2;
+
+
 	// Create vector points and texture coords after we sort the vertices
 	vec4_t point_a = { (float)x0, (float)y0, z0, w0 };
 	vec4_t point_b = { (float)x1, (float)y1, z1, w1 };
@@ -250,8 +257,8 @@ void draw_texel(int x, int y, uint32_t* texture, vec4_t point_a, vec4_t point_b,
 
 
 	// Map the UV coordinate to the full texture width and hiegt
-	int tex_x = std::abs((int)(interpolated_u * texture_width));
-	int tex_y = std::abs((int)(interpolated_v * texture_height));
+	int tex_x = std::abs((int)(interpolated_u * texture_width)) % texture_width;
+	int tex_y = std::abs((int)(interpolated_v * texture_height)) % texture_height;
 
 	draw_pixel(x, y, texture[(texture_width * tex_y) + tex_x]);
 

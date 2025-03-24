@@ -12,8 +12,8 @@
 #include "light.h"
 #include "texture.h"
 #include "upng.h"
-//#define DRAW_SHAPE
-#define DRAW_CUBE
+#define DRAW_SHAPE
+//#define DRAW_CUBE
 #define PNG_TEXTURE
 
 #define FULL_ROTATION
@@ -63,14 +63,14 @@ void setup(void) {
 #endif 
 
 #ifdef DRAW_SHAPE
-	load_obj_file("D:\\Codes\\Dev\\C_CPP\\3dGraphics\\3dGraphics\\f22.obj");
+	load_obj_file(".\\assets\\crab.obj");
 #endif // DRAW_SHAPE
 
 	// Load the hardcoded texature array in the global mesh texture variable
 	//mesh_texture = (uint32_t*)REDBRICK_TEXTURE;
 
 #ifdef PNG_TEXTURE
-	load_png_texture_data("D:\\Codes\\Dev\\C_CPP\\3dGraphics\\3dGraphics\\cube.png");
+	load_png_texture_data(".\\assets\\crab.png");
 #endif // PNG_TEXTURE
 
 

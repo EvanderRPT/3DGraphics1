@@ -63,7 +63,7 @@ void load_obj_file(const char* filename) {
 		std::cerr << "Could not open the file - " << filename << std::endl;
 		return;
 	}
-
+	std::vector<tex2_t> texcoords;
 	std::string line;
 	while (std::getline(file, line)) {
 		std::istringstream iss(line);
@@ -74,10 +74,20 @@ void load_obj_file(const char* filename) {
 			iss >> type >> vertex.x >> vertex.y >> vertex.z;
 			mesh.vertices.push_back(vertex);
 		}
-		else if (line.rfind("f ", 0) == 0) { // Face line
+		// Texture coordinate information
+		if (line.rfind("vt ", 0) == 0) {
+			tex2_t texcoord;
+			std::string prefix;
+			iss >> prefix >> texcoord.u >> texcoord.v;
+			//std::cout << "u: " << texcoord.u << " v: " << texcoord.v << std::endl;
+			texcoords.push_back(texcoord);
+		}
+
+		 if (line.rfind("f ", 0) == 0) { // Face line
 			face_t face;
 			char type;
 			int v1, v2, v3, t1, t2, t3, n1, n2, n3;
+		
 			iss >> type;
 			char slash;
 			if (line.find('/') != std::string::npos) {
@@ -88,7 +98,15 @@ void load_obj_file(const char* filename) {
 			else {
 				iss >> v1 >> v2 >> v3;
 			} 
-			face = { v1, v2, v3 };
+			face = { 
+				v1 ,
+				v2,
+				v3,
+				texcoords[t1 - 1],
+				texcoords[t2 - 1],
+				texcoords[t3 - 1],
+				0xFFFFFFFF
+			 };
 			mesh.faces.push_back(face);
 		}
 		
