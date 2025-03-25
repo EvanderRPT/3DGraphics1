@@ -2,7 +2,7 @@
 #include "display.h"
 #include <algorithm>
 void draw_texel(int x, int y, uint32_t* texture, vec4_t point_a, vec4_t point_b, vec4_t point_c, tex2_t a_uv, tex2_t b_uv, tex2_t c_uv);
-
+void draw_triangle_pixel(int x, int y, uint32_t color, vec4_t point_a, vec4_t point_b, vec4_t point_c);
 void fill_flat_bottom_triangle(int x0, int y0, int x1, int y1, int x2, int y2, uint32_t color) {
 	float inv_slope1 = (float)(x1 - x0) / (y1 - y0);
 	float inv_slope2 = (float)(x2 - x0) / (y2 - y0);
@@ -29,15 +29,104 @@ void fill_flat_top_triangle(int x0, int y0, int x1, int y1, int x2, int y2, uint
 	}
 
 }
+
+
+
+
+
 void triangle_t::draw_filled_triangle(uint32_t color)
 {
+	int y0 = points[0].y;
+	int y1 = points[1].y;
+	int y2 = points[2].y;
+	int x0 = points[0].x;
+	int x1 = points[1].x;
+	int x2 = points[2].x;
+	float z0 = points[0].z;
+	float z1 = points[1].z;
+	float z2 = points[2].z;
+	float w0 = points[0].w;
+	float w1 = points[1].w;
+	float w2 = points[2].w;
+
+
+	if (y0 > y1) {
+		std::swap(y0, y1);
+		std::swap(x0, x1);
+		std::swap(z0, z1);
+		std::swap(w0, w1);
+	}
+	if (y1 > y2) {
+		std::swap(y1, y2);
+		std::swap(x1, x2);
+		std::swap(z1, z2);
+		std::swap(w1, w2);
+	}
+	if (y0 > y1) {
+		std::swap(y0, y1);
+		std::swap(x0, x1);
+		std::swap(z0, z1);
+		std::swap(w0, w1);
+	}
+	// Create three vector points after we sort the vertices
+	vec4_t point_a = { (float)x0, (float)y0, z0, w0 };
+	vec4_t point_b = { (float)x1, (float)y1, z1, w1 };
+	vec4_t point_c = { (float)x2, (float)y2, z2, w2 };
+
+	// Render the upper part of the triangle (flat-bottom)
+	float inv_slope_1 = 0;
+	float inv_slope_2 = 0;
+
+	if (y1 - y0 != 0) inv_slope_1 = (float)(x1 - x0) / std::abs(y1 - y0);
+	if (y2 - y0 != 0) inv_slope_2 = (float)(x2 - x0) / std::abs(y2 - y0);
+
+	if (y1 - y0 != 0) {
+		for (int y = y0; y <= y1; y++) {
+			int x_start = x1 + (y - y1) * inv_slope_1;
+			int x_end = x0 + (y - y0) * inv_slope_2;
+			if (x_end < x_start) {
+				std::swap(x_start, x_end);
+			}
+
+			for (int x = x_start; x < x_end; x++) {
+				// Draw our pixel with a solid color
+				draw_triangle_pixel(x, y, color, point_a, point_b, point_c);
+			}
+		}
+	}
+
+	// Render the bottom part of the triangle (flat-top)
+   ///////////////////////////////////////////////////////
+	inv_slope_1 = 0;
+	inv_slope_2 = 0;
+
+	if (y2 - y1 != 0) inv_slope_1 = (float)(x2 - x1) / abs(y2 - y1);
+	if (y2 - y0 != 0) inv_slope_2 = (float)(x2 - x0) / abs(y2 - y0);
+
+	if (y2 - y1 != 0) {
+		for (int y = y1; y <= y2; y++) {
+			int x_start = x1 + (y - y1) * inv_slope_1;
+			int x_end = x0 + (y - y0) * inv_slope_2;
+
+			if (x_end < x_start) {
+				std::swap(x_start, x_end); // swap if x_start is to the right of x_end
+			}
+
+			for (int x = x_start; x < x_end; x++) {
+				// Draw our pixel with a solid color
+				draw_triangle_pixel(x, y, color, point_a, point_b, point_c);
+			}
+		}
+	}
+
+#if 0
+
 	float y0 = points[0].y;
 	float y1 = points[1].y;
 	float y2 = points[2].y;
 	float x0 = points[0].x;
 	float x1 = points[1].x;
 	float x2 = points[2].x;
-
 	if (y0 > y1) {
 		std::swap(y0, y1);
 		std::swap(x0, x1);
@@ -50,8 +139,6 @@ void triangle_t::draw_filled_triangle(uint32_t color)
 		std::swap(y0, y1);
 		std::swap(x0, x1);
 	}
-
-
 	if (y1 == y2) {
 		// Draw flat-bottom triangle
 		fill_flat_bottom_triangle(x0, y0, x1, y1, x2, y2, color);
@@ -71,6 +158,9 @@ void triangle_t::draw_filled_triangle(uint32_t color)
 		// Draw flat-top triangle
 		fill_flat_top_triangle(x1, y1, Mx, My, x2, y2, color);
 	}
+#endif // Using the z-buffer to implement it instead.
+
+
 }
 
 void triangle_t::draw_triangle(uint32_t color)
@@ -272,4 +362,34 @@ void draw_texel(int x, int y, uint32_t* texture, vec4_t point_a, vec4_t point_b,
 		z_buffer[(window_width * y) + x] = interpolated_reciprocal_w;
 	}
 
+}
+
+void draw_triangle_pixel(
+	int x, int y, uint32_t color,
+	vec4_t point_a, vec4_t point_b, vec4_t point_c
+) {
+	// Create three vec2 to find the interpolation
+	vec2_t p = { (float)x, (float)y };
+	vec2_t a = point_a.to_vec2();
+	vec2_t b = point_b.to_vec2();
+	vec2_t c = point_c.to_vec2();
+
+	// Calculate the barycentric coordinates of our point 'p' inside th triangle
+	vec3_t weights = barycentric_weights(a, b, c, p);
+
+	float alpha = weights.x;
+	float beta = weights.y;
+	float gamma = weights.z;
+	// Interpolate the value of 1/w for the current pixel
+	float interpolated_reciprocal_w = (1 / point_a.w) * alpha + (1 / point_b.w) * beta + (1 / point_c.w) * gamma;
+	// Adjust 1/w so the pixels that are closer to the camera have smaller values
+	interpolated_reciprocal_w = 1.0 - interpolated_reciprocal_w;
+	// Only draw the pixel if the depth value is less than the one previously stored in the z-buffer
+	if (interpolated_reciprocal_w < z_buffer[(window_width * y) + x]) {
+		// Draw a pixel at position (x,y) with a solid color
+		draw_pixel(x, y, color);
+
+		// Update the z-buffer value with the 1/w of this current pixel
+		z_buffer[(window_width * y) + x] = interpolated_reciprocal_w;
+	}
 }

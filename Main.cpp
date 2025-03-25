@@ -219,7 +219,8 @@ void update(void) {
 		}
 
 		//	Calculate the average depth for each face based on the vertices after transformation
-		float avg_depth = (transformed_vertices[0].z + transformed_vertices[1].z + transformed_vertices[2].z) / 3.0;
+
+		//float avg_depth = (transformed_vertices[0].z + transformed_vertices[1].z + transformed_vertices[2].z) / 3.0;
 
 		// Calculaate the shade intensity based on how aliged is the face normal and the opposite of the light direction
 		float light_intensity_factor = -normal.dot(light.direction);
@@ -235,19 +236,23 @@ void update(void) {
 			{ mesh_face.b_uv.u,  mesh_face.b_uv.v },
 			{ mesh_face.c_uv.u,  mesh_face.c_uv.v },
 			triangle_color,
-			avg_depth
+			//avg_depth
 		};
 
 		// Save the projected triangle in the array of triangles to render
 		triangles_to_render.push_back(projected_triangle);
 	}
 
-	// Sort the triangles to render by their avg_depth
 
+#if 0
+	// Sort the triangles to render by their avg_depth
 	std::sort(triangles_to_render.begin(), triangles_to_render.end(),
 		[](const triangle_t& a, const triangle_t& b) {
 			return a.avg_depth > b.avg_depth;
 		});
+
+#endif // Using the z-biffer instead of a sorting implementation.
+
 
 }
 
