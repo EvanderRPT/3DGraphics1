@@ -12,6 +12,8 @@
 #include "light.h"
 #include "texture.h"
 #include "upng.h"
+#include "camera.h"
+
 #define DRAW_SHAPE
 //#define DRAW_CUBE
 #define PNG_TEXTURE
@@ -27,8 +29,9 @@
 std::vector<triangle_t> triangles_to_render;
 
 
-vec3_t camera_position = { 0, 0, 0 };
+//vec3_t camera_position = { 0, 0, 0 };
 mat4_t proj_matrix;
+mat4_t view_matrix;
 
 bool is_running = false;
 
@@ -36,6 +39,9 @@ int previous_frame_time = 0;
 
 enum cull_method cull_method = CULL_NONE;
 enum render_method render_method = RENDER_WIRE;
+
+
+
 void setup(void) {
 
 	// Initialize render mode and triangle culling method
@@ -132,6 +138,14 @@ void update(void) {
 	mesh.translation.z = 5;
 	//mesh.scale.x += 0.02;
 
+	// Change the camera position per animation frame
+	camera.position.x += 0.01;
+
+	// Create the view martix looking at a hardcoed target point
+	vec3_t target = { 0, 0, 10 };
+	vec3_t up_ddirection = { 0 , 1, 0 };
+	view_matrix = mat4_look_at(camera.position, target, up_ddirection);
+
 
 	mat4_t scale_matrix;
 	scale_matrix.make_scale(mesh.scale. x, mesh.scale.y, mesh.scale.z);
@@ -166,15 +180,19 @@ void update(void) {
 			mat4_t world_matrix;
 			world_matrix.identity();
 
+			// Order matters: first scale, the rotate, then translate.
 			world_matrix = scale_matrix.mul_mat4(world_matrix);
 			world_matrix = rotation_matrix_z.mul_mat4(world_matrix);
 			world_matrix = rotation_matrix_y.mul_mat4(world_matrix);
 			world_matrix = rotation_matrix_x.mul_mat4(world_matrix);
 			world_matrix = translation_matrix.mul_mat4(world_matrix);
 
+			// Multiply the world matrix by the original vector
 			transformed_vertex = world_matrix.mul_vec4(transformed_vertex);
 			
-			
+			// Multiply the view matrix by the vector to transform the scene to camera space
+			transformed_vertex = view_matrix.mul_vec4(transformed_vertex);
+
 			// Translate the vertex away from the camera
 			// Save the transformed vertex in the array of transformed vertexs
 			transformed_vertices[j] = transformed_vertex;
@@ -192,7 +210,8 @@ void update(void) {
 			vec3_t normal = vector_ab.cross(vector_ac);
 			normal.normalize();
 			// Find the vector between a point in the triangle and the camera
-			vec3_t camera_ray = camera_position.sub(vector_a);
+			vec3_t origin = { 0, 0, 0 };
+			vec3_t camera_ray = origin.sub(vector_a);
 
 			// Calculate how aligned the camera ray is with the face normal 
 			float dot_normal_camera = normal.dot(camera_ray);

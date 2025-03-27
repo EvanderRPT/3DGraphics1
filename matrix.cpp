@@ -148,3 +148,27 @@ vec4_t mat4_mul_vec4_project(mat4_t mat_proj, vec4_t v) {
     return result;
 }
 
+mat4_t mat4_look_at(vec3_t eye, vec3_t target, vec3_t up) {
+    // Compute the forward (z), right (x), and up (y) vectors
+    vec3_t z = target.sub(eye);
+    z.normalize();
+    vec3_t x = up.cross(z);
+    x.normalize();
+    vec3_t y = z.cross(x);
+
+
+    // | x.x   x.y   x.z  -dot(x,eye) |
+    // | y.x   y.y   y.z  -dot(y,eye) |
+    // | z.x   z.y   z.z  -dot(z,eye) |
+    // |   0     0     0            1 |
+    float arr[4][4]  = { 
+        { x.x, x.y, x.z, -x.dot(eye)},
+        { y.x, y.y, y.z, -y.dot(eye) },
+        { z.x, z.y, z.z, -z.dot(eye) },
+        {   0,   0,   0,           1 } 
+    };
+    mat4_t view_matrix = { arr };
+    return view_matrix;
+
+}
+
