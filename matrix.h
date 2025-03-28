@@ -34,6 +34,7 @@ public:
 	
 	
 	//static mat4_t mat4_make_rotation_x(float angle);
+	//static mat4_t rotation_y(float angle);
 };
 
 mat4_t mat4_make_perspective(float fov, float aspect, float znear, float zfar);

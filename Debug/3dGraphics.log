@@ -1,17 +1,38 @@
 ﻿  Main.cpp
 D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(63,12): warning C4305: 'initializing': truncation from 'double' to 'float'
 D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(65,14): warning C4305: 'initializing': truncation from 'double' to 'float'
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(131,21): warning C4305: '+=': truncation from 'double' to 'float'
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(132,21): warning C4305: '+=': truncation from 'double' to 'float'
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(136,21): warning C4305: '+=': truncation from 'double' to 'float'
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(142,23): warning C4305: '+=': truncation from 'double' to 'float'
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(232,43): warning C4244: '*=': conversion from 'double' to 'float', possible loss of data
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(233,44): warning C4244: '*=': conversion from 'double' to 'float', possible loss of data
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(299,20): warning C4018: '<': signed/unsigned mismatch
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(317,61): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(317,35): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(318,61): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(318,35): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(319,61): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(319,35): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(114,29): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(116,29): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(118,22): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(120,22): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(122,55): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(126,55): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(143,54): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(257,43): warning C4244: '*=': conversion from 'double' to 'float', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(258,44): warning C4244: '*=': conversion from 'double' to 'float', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(324,20): warning C4018: '<': signed/unsigned mismatch
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(342,61): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(342,35): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(343,61): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(343,35): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(344,61): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\Main.cpp(344,35): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  matrix.cpp
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\matrix.cpp(53,13): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\matrix.cpp(54,13): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\matrix.cpp(70,13): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\matrix.cpp(71,13): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\matrix.cpp(86,13): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\matrix.cpp(87,13): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\matrix.cpp(132,24): warning C4244: '=': conversion from 'double' to '_Ty', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\matrix.cpp(132,24): warning C4244:         with
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\matrix.cpp(132,24): warning C4244:         [
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\matrix.cpp(132,24): warning C4244:             _Ty=float
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\matrix.cpp(132,24): warning C4244:         ]
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\matrix.cpp(133,19): warning C4244: '=': conversion from 'double' to '_Ty', possible loss of data
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\matrix.cpp(133,19): warning C4244:         with
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\matrix.cpp(133,19): warning C4244:         [
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\matrix.cpp(133,19): warning C4244:             _Ty=float
+D:\Codes\Dev\C_CPP\3dGraphics\3dGraphics\matrix.cpp(133,19): warning C4244:         ]
+  Generating Code...
   3dGraphics.vcxproj -> D:\Codes\Dev\C_CPP\3dGraphics\Debug\3dGraphics.exe

@@ -121,6 +121,8 @@ mat4_t mat4_t::mul_mat4(mat4_t b)
     return r;
 }
 
+
+
 mat4_t mat4_make_perspective(float fov, float aspect, float znear, float zfar) {
     // | (h/w)*1/tan(fov/2)             0              0                 0 |
     // |                  0  1/tan(fov/2)              0                 0 |

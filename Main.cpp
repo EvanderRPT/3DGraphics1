@@ -32,7 +32,7 @@ std::vector<triangle_t> triangles_to_render;
 //vec3_t camera_position = { 0, 0, 0 };
 mat4_t proj_matrix;
 mat4_t view_matrix;
-
+float delta_time = 1.0f;
 bool is_running = false;
 
 int previous_frame_time = 0;
@@ -108,8 +108,24 @@ void process_input(void) {
 			render_method = RENDER_TEXTURED_WIRE;
 		if (event.key.keysym.sym == SDLK_c)
 			cull_method = CULL_BACKFACE;
-		if (event.key.keysym.sym == SDLK_d)
+		if (event.key.keysym.sym == SDLK_x)
 			cull_method = CULL_NONE;
+		if (event.key.keysym.sym == SDLK_UP)
+			camera.position.y += 3.0 * delta_time;
+		if (event.key.keysym.sym == SDLK_DOWN)
+			camera.position.y -= 3.0 * delta_time;
+		if (event.key.keysym.sym == SDLK_a)
+			camera.yaw -= 1.0 * delta_time;
+		if (event.key.keysym.sym == SDLK_d)
+			camera.yaw += 1.0 * delta_time;
+		if (event.key.keysym.sym == SDLK_w) {
+			camera.forward_velocity = camera.direction.mul(5.0 * delta_time);
+			camera.position = camera.position.add(camera.forward_velocity);
+		}
+		if (event.key.keysym.sym == SDLK_s) {
+			camera.forward_velocity = camera.direction.mul(5.0 * delta_time);
+			camera.position = camera.position.sub(camera.forward_velocity);
+		}
 		break;
 	}
 }
@@ -122,28 +138,37 @@ void update(void) {
 	if (time_to_wait > 0 && time_to_wait <= FRAME_TARGET_TIME) {
 		SDL_Delay(time_to_wait);
 	}
+
+	// Get a delta time factor converted to seocnds to be used to update our game obj
+	delta_time = (SDL_GetTicks() - previous_frame_time) / 1000.0;
+
+
 	previous_frame_time = SDL_GetTicks();
 
 	triangles_to_render = {};
 
 	// Initialize the triangles to render
 #ifdef FULL_ROTATION
-	mesh.rotation.y += 0.01;
-	mesh.rotation.z += 0.01;
+	/*mesh.rotation.y += 0.1 * delta_time;
+	mesh.rotation.z += 0.1 * delta_time;
+	mesh.rotation.x += 0.1 * delta_time;*/
+	mesh.translation.z = 5;
 #endif // 
 
 
-	mesh.rotation.x += 0.01;
-	//mesh.translation.x += 0.01;
-	mesh.translation.z = 5;
-	//mesh.scale.x += 0.02;
 
-	// Change the camera position per animation frame
-	camera.position.x += 0.01;
 
 	// Create the view martix looking at a hardcoed target point
-	vec3_t target = { 0, 0, 10 };
 	vec3_t up_ddirection = { 0 , 1, 0 };
+	// Initalize the target looking at the positive z-axis
+	vec3_t target = { 0, 0, 1 };
+	mat4_t camera_yaw_rotation;
+	camera_yaw_rotation.make_rotation_y(camera.yaw);
+	camera.direction = camera_yaw_rotation.mul_vec4(target.vec3_to_vec4()).vec4_to_vec3();
+
+	// Offset the camera position in the direction where the camera is pointing at
+	target = camera.position.add(camera.direction);
+
 	view_matrix = mat4_look_at(camera.position, target, up_ddirection);
 
 
